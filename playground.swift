@@ -2,97 +2,101 @@ import Foundation
 
 print("Hello World")
 
-print("😘","😘",separator:"🍺🍻")
+var greet = """
+Haaalo friends,
+How are you doing!
+Cludy weather...
+Boring class
+Funny Friends
+"""
 
-var x: Int
-x = 10
-print ("values of \(x)")
+print(greet)
 
-var greet: String?
-print("Hello,\(greet)")
+let mood = "\u{1F496}"
 
-greet = "Good Morning"
-print("Hello,\( greet))")
+print(mood)
 
-if greet != nil{
-    print (greet!)
+if mood.isEmpty{
+    print("No mood")
+    
 }else{
-    print ("greet id nil")
+
+greet += mood
+}
+print(greet)
+
+var team = String()
+team = "Croatia"
+print(team)
+
+for i in team{
+    print(i)
 }
 
-var temperature : Int!
+var initial : Character = "j"
+team.append(initial)
 
-print (temperature)
+team.append(" Go Go Go ")
+print(team)
 
-if temperature != nil{
-print("\(temperature) is not nil")
-}else{
-    print("temperature is nil")
+print("Length ot team :",team.count)
+
+print("Start Index of team : \(team[team.startIndex])")
+//print("End Index of team : \(team[team.endIndex])")
+
+print("last character of team : \team[team.index(before:team.endIndex)])")
+
+print("some character :\(team[team.index(after:team.startIndex)])")
+
+print("4th character : \(team[team.index(team.startIndex,offsetBy: 3)])")
+
+var idx = team.index(team.endIndex,offsetBy: -5)
+print("\(team[idx])")
+
+for index in greet.indices {
+    print("\(greet[index])",terminator:"_")
 }
 
-if let PI:Float = 3.142{
-
-print("Pi = \(PI)")
+for (index,value) in team.enumerated(){
+    print("Index : \(index) --- Value : \(value)")
+    
 }
 
 
-let friends:[String] = ["Alay","Param","Rinku devi"]
+team.insert("!",at: team.endIndex)
+team.insert(contentsOf: " Win it..",at: team.endIndex)
 
-for frnd in friends{
-    print("\(frnd)")
-}
+var idxG = team.index(of: "G") ??
+team.endIndex
+//print("idx1 : \(idx1)")
 
-var j = 1
-while(j<3){
-    print("\(j)")
-    j = j+1
-}
-j=10
-repeat{
-    print("\(j)")
-    j = j+10
+//team.remove(at: idx1)
 
-}while(j<30)
+team.removeSubrange(team.startIndex..<idxG)
 
-j=6
-switch j{
-    case 10:
-    print("ten")
-    case 20:
-    print("twenty")
-    case 30:
-    print("thirty")
-    case 40,70,80:
-    print("forty or seventy or eighty ")
-case 81..<100:
-print("80 to 100")
-    default:
-    print("Not supported")
-}
+var idxI = team.index(of: "t") ??
+team.endIndex
+var idxW = team.index(of: "W") ??
+team.startIndex
 
-let coordinate = (10,20)
-switch coordinate{
-    case(0,0):
-    print("no canvas")
-    case(_,20):
-    print("y axis")
-    fallthrough
-    case(10,_):
-    print("x axis")
-    case(1...10, 1...20):
-    print("within canvas")
-    case(10,20):
-    print("on center")
-    default:
-    print("canvas unavailable")
-}
+var win = team[idxW..<idxI]
 
-let range = 1...5
-print(range)
-print("\(range) contains 3:",range.contains(3))
-print("\(range) contains 7:",range.contains(7))
-print("\(range) lowerBound:",range.lowerBound)
-print("\(range) upperBound:",range.upperBound)
+win = win[win.index(before:]
+print("\(win)")
+var idxLast = win.index(win.endIndex,offsetBy: -2)
+
+win = win[win.startIndex...idxLast]
+
+print("\(win)")
+
+print(team.uppercased())
+
+var grade : String?
+grade = "A"
+let finalGrade = grade ?? "F"
+print("\(finalGrade)")
+
+
 
 
 
